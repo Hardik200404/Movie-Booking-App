@@ -1,0 +1,93 @@
+npm init to initialize the project
+npm i express mongoose body-parser
+npm i dotenv
+npm install nodemon --save-dev
+    nodemon is used to autorun the server, so that we dont have to restart 
+    every time we make some changes, and --save-dev means its a dev dependency, 
+    i.e. it is only for this system, other dependency are important 
+    for the app to run anywhere.
+
+"scripts in package.json"
+    this is a feature provided my node.js, any key mentioned in scripts we can
+    run it, by typing npm <key>, for exp, if we add a key, "abc" and give it a val
+    "Im abc", then type npm run abc, it will try to run "Im abc".
+
+    "Hooks" its a feature where, a predifined key is mentioned
+    exp, start, as this is a hook, all we need to do is type "npm start"
+    now this hook contains three keys, "prestart","start","poststart"
+    using these keys we assign our desired files, and "npm start" will 
+    execute them in order.
+
+create .env file , which will have all the env variables defined
+    like db url, port, db name etc 
+
+create a folder config which will have config files, like db config, server config etc 
+    inside it will export the config variables which it will fetch from .env using
+    process.env, to ensure process.env uses our .env file 
+    type require('dotenv').config() on top
+    now we can use our config variables where ever we want 
+
+index.js file
+    create express app, import port and db_url from individual config files
+    declare mongoose and connect to db, using async
+    run the server on the defined port
+
+models
+
+
+{
+    "_id" : ObjectId("65cf050b1d66b635643ebdf3"),
+    "name" : "Hanu-Man",
+    "genre" : [
+        "Action",
+        "Adventure",
+        "Fantasy"
+    ],
+    "description" : "Hanumanthu gets the powers of Hanuman in a distant village and fights for Anjanadri.",
+    "duration" : "2h 38m",
+    "release_date" : ISODate("2024-01-12T00:00:00.000+0000"),
+    "director" : "Prasanth Varma",
+    "release_status" : true,
+    "language" : [
+        "Telugu",
+        "Hindi",
+        "Tamil",
+        "Kannada",
+        "Malayalam"
+    ],
+    "rating" : 9.4,
+    "casts" : [
+        "Teja Sajja",
+        "Amritha Aiyer",
+        "Varalaxmi Sarathkumar",
+        "Samuthirakani",
+        "Vinay Rai",
+        "Vennela Kishore"
+    ]
+}
+{
+    "_id" : ObjectId("65cf8c87b5e0685fc8693772"),
+    "name" : "Bob Marley: One Love",
+    "genre" : [
+        "Biography",
+        "Drama",
+        "Musical"
+    ],
+    "description" : "Celebrates the life and music of an icon who inspired generations through his message of love and unity. On the big screen for the first time, discover Bobs powerful story of overcoming adversity and the journey behind his revolutionary music",
+    "casts" : [
+        "Kingsley Ben-Adir",
+        "Lashana Lynch",
+        "James Norton"
+    ],
+    "duration" : "1h 49m",
+    "release_date" : ISODate("2024-02-16T00:00:00.000+0000"),
+    "director" : "Reinaldo Marcus Green",
+    "release_status" : true,
+    "language" : [
+        "English"
+    ],
+    "rating" : 6.5,
+    "__v" : NumberInt(0)
+}
+
+
